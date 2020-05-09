@@ -8,7 +8,7 @@ require("dotenv").config();
 const Projects = require("./models/ProjectSchema");
 const Users = require("./models/UserSchema");
 console.log(process.env.MONGODB_URI);
-mongoose.connect(process.env.MONGODB_URI|| "mongodb://localhost/projectify");
+mongoose.connect(process.env.MONGODB_URI|| "mongodb://user123:password123@ds041218.mlab.com:41218/heroku_31cvx2fh");
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
