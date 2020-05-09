@@ -3,6 +3,7 @@ import {
   makeStyles,
   Container,
   Typography,
+  TextField,
   Button
 } from "@material-ui/core";
 import { Jutsu } from 'react-jutsu';
@@ -25,6 +26,15 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 10,
     paddingBottom: 10, 
     marginBottom: 10,
+  },
+  inputLabel: {
+    color: theme.palette.info.main,
+  },
+  input: {
+    color: theme.palette.info.main,
+  },
+  inputOutline: {
+    borderColor: theme.palette.info.main,
   }
 }));
 
@@ -55,10 +65,29 @@ const VideoChat = () => {
             Video Chat
           </Typography>
           <form className={classes.textField}>
-            <input className={classes.formField} id='room' type='text' placeholder='Room' value={room} onChange={(e) => setRoom(e.target.value)} />
-            <input className={classes.formField} id='name' type='text' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
-            <input className={classes.formField} id='password' type='text' placeholder='Password (optional)' value={password} onChange={(e) => setPassword(e.target.value)} />
-            <Button variant="contained" onClick={handleClick} type='submit'>
+            <TextField InputLabelProps={{ className: classes.inputLabel }}
+              InputProps={{
+                classes: {
+                  root: classes.input,
+                  notchedOutline: classes.inputOutline,
+                },
+              }} variant='outlined' className={classes.formField} id='room' type='text' placeholder='Room' value={room} onChange={(e) => setRoom(e.target.value)} />
+            <TextField InputLabelProps={{ className: classes.inputLabel }}
+              InputProps={{
+                classes: {
+                  root: classes.input,
+                  notchedOutline: classes.inputOutline,
+                },
+              }} variant='outlined' className={classes.formField} id='name' type='text' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
+            <TextField InputLabelProps={{ className: classes.inputLabel }}
+              InputProps={{
+                classes: {
+                  root: classes.input,
+                  notchedOutline: classes.inputOutline,
+                },
+              }} variant='outlined' className={classes.formField} id='password' type='text' placeholder='Password (optional)' value={password} onChange={(e) => setPassword(e.target.value)} />
+            <br></br>
+            <Button variant="contained" color='primary' onClick={handleClick} type='submit'>
               Start / Join
             </Button>
           </form>
